@@ -17,15 +17,15 @@ Setup the TMS device Powermag 100 for external use:
 To make the functions available in Matlab, add the path of the 
 PM100_Class.m file (e.g. addpath(<path>) and then simply load the class 
 into an object (from a script or from then command line) like
-'''
+```
 MyObject=PM100_Class.m;
-'''
+```
 
       
 Now, you can call the functions of the object via:
-'''
+```
 output = MyObject.FunctionName(input);
-'''
+```
 
       
 ## *Input*      
@@ -50,7 +50,7 @@ for each pulse, or a scalar if all pulses should have the same intensity.
 ### display     
 some of the functions can produce an output in the command window. By 
 default display is switched off. If you want to see the output, specify 
-'display=1'; 
+display=1; 
 
 ###port        
 only needed if the USB is not COM3 in your system  (see function create_COM_object)
@@ -64,83 +64,83 @@ The following functions are available in the PM100_Class:
 displays a working example script (setup for the configuration in G11 in 
 the CINN). You also can save the script to run it. For this example function 
 you not need to be connected to the TMS device. e.g. 
-'''
+```
 MyObject.example
-'''
+```
 
 ### create_COM_object
 Setting up a COM port for the USB connection to the PM 100 device (default=COM3.
 If it is not COM3 in your system, then specify the input port with the 
 appropriate number (e.g. 1 for COM1). e.g.
-'''
+```
 COM=MyObject.create_COM_object(display,port)
-'''
+```
 
 ### reset
 reset the TMS device (Important e.g. when commands were send in wrong order)
 e.g. 
-'''
+```
 MyObject.reset(MyObject)
-'''
+```
 after the reset you need to use the function get_ID to be able to send pulses 
 (see below for further descriptions).
 
 ### get_id               
 get the firmware ID of the PM100 device e.g. 
-'''
+```
 ID=MyObject.get_ID(COM,device,display)
-'''
+```
 This function also switches the status of the PC interface to active.
 
 ### get_status           
 get the status of the PM100 device. See in manual for the meanings of the codes.
 e.g. 
-'''
+```
 STATUS=MyObject.get_status(COM,device,display)
-'''
+```
 
 ### get_coil_temperature
 get the coil temprature e.g. 
-'''
+```
 [CT,coil_temp]=MyObject.get_coil_temperature(COM,device,display)
-'''
+```
 
 ### get_infos            
 get ID, status and coil temperature together in one go e.g.
-'''
+```
 [ID,STATUS,CT,coil_temp]=MyObject.get_infos(COM,device,display)
-'''
+```
 
 ### activate
 activate the TMS device to setup and run protocols e.g.
-'''
+```
 MyObject.activate(COM,device)
-'''
+```
 
 ### setup_protocol       
 setup a stimulation protocol depending on the values in pulse_time 
 and intensity e.g.
-'''
+```
 setup_protocol(COM,device,pulse_shape,intensity,pulse_time,display);
-'''
+```
 
 ### start_stimulation    
 start the stimulation protocol e.g.
-'''
+```
 MyObject.start_stimulation(COM,device)
-'''
+```
 
 ### stop_stimulation
 stop a running protocol e.g.
-'''
+```
 MyObject.stop_stimulation(COM,device)
-'''
+```
 
 ### deactivate           
 deactivate the TMS device e.g.
-'''
+```
 MyObject.deactivate(COM,device)
-'''
+```
 
 
 Some of the functions needs to be in the correct order (in relation to
