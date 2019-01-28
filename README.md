@@ -52,7 +52,7 @@ some of the functions can produce an output in the command window. By
 default display is switched off. If you want to see the output, specify 
 display=1; 
 
-###port        
+### port        
 only needed if the USB is not COM3 in your system  (see function create_COM_object)
 
 
